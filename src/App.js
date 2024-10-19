@@ -1,5 +1,6 @@
 import React from "react";
 import Counter from "./components/Counter";
+import Search from "./components/Search";
 
 function App() {
   const testText = () => {
@@ -7,13 +8,14 @@ function App() {
     return 'this is text';
   }
   return (
-    <div className="App">
-      <h2>Mini React Project</h2>
+    <div className="container my-4">
+      <h1>Mini React Project</h1>
       {/* Inner function */}
       <span>{testText()}</span>
 
       {/* imported function/component */}
       <Counter />
+      <Search />
     </div>
   );
 };

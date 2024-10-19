@@ -53,10 +53,8 @@ const Counter = () => {
     // useEffect hook: runs after every render (both initial and updates)
     useEffect(() => {
         // Updates the document's title with the current count value
-        document.title = `Clicked ${this.state.count} times`;
-    });
-
-    // No dependency array means this runs on every render (not ideal, better to add [count] as a dependency)
+        document.title = `Clicked ${count} times`;
+    }, [count]);
 
     // increament method
     const increment = () => {
@@ -64,8 +62,8 @@ const Counter = () => {
     };
 
     return(
-        <div>
-            <h1>Counter with Class Component</h1>
+        <div className="mt-4">
+            <h2>Counter with Class Component</h2>
             <button onClick={increment}>
                     Clicked {count} times
             </button>
