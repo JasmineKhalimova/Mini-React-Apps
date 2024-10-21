@@ -31,7 +31,7 @@
 
 # React Classes
 
-- Class components were used for:
+- **Class components were used for:**
     - To keep data in state
     - To use lifecycle methods 
     - To pass props from classes to functional components
@@ -119,7 +119,7 @@ In JavaScript, var, let, and const are used to declare variables, but they behav
 ## String Concatenation vs Template Strings (Template Literals)
 In JavaScript, you can combine strings in two ways: using template strings (also called template literals) or string concatenation.
 
-- String Concatenation:
+- **String Concatenation:**
     - This is the traditional way of combining strings using the `+` operator. You manually concatenate (join) each string and variable.
 
     - Concatenation can become cumbersome when dealing with multiple strings or multiline text, as you need to manage the + operator carefully.
@@ -133,10 +133,10 @@ In JavaScript, you can combine strings in two ways: using template strings (also
     // Output: Hello, my name is Alice and I am 25 years old.
 
 
-- Template Strings: 
+- **Template Strings:** 
     - Template strings (introduced in ES6) use backticks (`) instead of quotes and allow embedded expressions with ${}. They are more readable and flexible, especially for combining variables and writing multi-line strings.
 
-    - In template strings, you don’t need to manually concatenate variables and text with +. Instead, you place the variable or expression inside ${} within the backticks.
+    - In template strings, you do not need to manually concatenate variables and text with +. Instead, you place the variable or expression inside ${} within the backticks.
 
     let name = "Alice";
     let age = 25;
@@ -150,7 +150,7 @@ In JavaScript, you can combine strings in two ways: using template strings (also
 ## Parameters
 In JavaScript, regular parameters and default parameters are both ways of passing values to functions, but they differ in behavior when the function is called without passing an argument.
 
--  Regular Parameters:
+-  **Regular Parameters:**
     - Regular parameters are the usual parameters passed to a function.
     - If no argument is provided for a regular parameter, its value is undefined by default.
     - If you call greet() without passing a value, name will be undefined.
@@ -162,7 +162,7 @@ In JavaScript, regular parameters and default parameters are both ways of passin
     greet("Alice"); // Outputs: Hello, Alice
     greet();        // Outputs: Hello, undefined
 
-- Default Parameters:
+- **Default Parameters:**
     - Default parameters allow you to specify a default value for a parameter if no argument is provided or if the argument is undefined.
     - This prevents the need to manually check for undefined inside the function.
     - Here, name has a default value of "Guest". If no argument is passed to greet(), it will use "Guest" as the value.
@@ -176,7 +176,7 @@ In JavaScript, regular parameters and default parameters are both ways of passin
 ## Function Declarations and Expressions vs Arrow Functions
 In JavaScript, regular functions and arrow functions are two ways to define functions, but they differ significantly in terms of syntax and behavior, especially regarding this, arguments, and function hoisting.
 
-- Regular Functions (Function Declarations and Expressions)
+- **Regular Functions (Function Declarations and Expressions)**
     - Regular functions can be defined using either a function declaration or a function expression. They have their own this context, and their behavior is more traditional in terms of how functions work.
 
     - Example: Function Declaration
@@ -195,7 +195,7 @@ In JavaScript, regular functions and arrow functions are two ways to define func
 
     regularFunction();  // Outputs: This is a regular function.
 
-- Arrow Functions
+- **Arrow Functions** 
 
     - Arrow functions, introduced in ES6, have a more concise syntax and behave differently from regular functions in a few key ways:
 
@@ -211,6 +211,164 @@ In JavaScript, regular functions and arrow functions are two ways to define func
         arrowFunction();  // Outputs: This is an arrow function.
 - `this` keyword refers to enclosing content e.g. `{}`
 
+## Array Destructuring
+In JavaScript, array destructuring is a syntax that allows 
+you to unpack values from arrays (or even objects) into 
+distinct variables. Its a convenient and readable way to 
+values from arrays without having to use traditional indexing.
 
+const array = [1, 2, 3];
 
+// Destructuring assignment
+const [a, b, c] = array;
 
+console.log(a); // Outputs: 1
+console.log(b); // Outputs: 2
+console.log(c); // Outputs: 3
+
+## spread (...) and Rest (...)
+In JavaScript, the spread (...) and rest (...) operators share the 
+same syntax (three dots), but they are used in different contexts 
+and serve different purposes. 
+
+- **Spread Operator (...):** 
+    - The spread operator is used to expand an iterable (like an array,
+    string, or object) into individual elements. It allows you to spread 
+    out elements of an array or properties of an object.
+    Use Cases for Spread Operator:
+
+    - You can use the spread operator to expand the 
+    elements of an array into individual elements.
+
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5, 6];
+
+    const combinedArray = [...arr1, ...arr2];  // Combines two arrays
+    console.log(combinedArray);  // Outputs: [1, 2, 3, 4, 5, 6]
+
+- **Rest Operator (...):** 
+    - The rest operator is used to collect multiple elements
+     into a single array or object. It essentially gathers the "rest" of
+      the values into a new array or object.
+
+        const [first, second, ...rest] = [1, 2, 3, 4, 5];
+        console.log(first);  // Outputs: 1
+        console.log(second); // Outputs: 2
+        console.log(rest);   // Outputs: [3, 4, 5]
+
+## Function vs Classes
+In JavaScript, both functions and classes are used to create objects and define reusable pieces of code. While they can often be used for similar purposes, they have distinct syntaxes and behavior. Here’s a comparison between functions and classes in JavaScript, with examples.
+
+- **Function**
+Functions in JavaScript are versatile and can be used to encapsulate logic, return values, or even create objects (using constructor functions).
+
+a) Function Declaration (Basic Function)
+
+Functions are used to define reusable blocks of code that can be called with arguments and return results.
+
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice"));  // Outputs: Hello, Alice!
+
+b) Constructor Function
+
+Before ES6 introduced classes, constructor functions were the primary way to create objects with similar properties and methods.
+
+Example of a constructor function:
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Adding methods to the prototype
+Person.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+const alice = new Person("Alice", 30);
+alice.greet();  // Outputs: Hello, my name is Alice and I am 30 years old.
+
+    this refers to the object being created.
+    The new keyword is used to create new instances of Person.
+
+c) Function Expressions
+
+Functions can also be stored in variables and passed around as first-class citizens.
+
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet("Bob"));  // Outputs: Hello, Bob!
+
+- **Class (Introduced in ES6)**
+
+Classes are syntactical sugar over JavaScript’s prototype-based inheritance. They make it easier to create and manage objects that share similar properties and methods.
+
+a) Class Declaration
+
+A class defines a blueprint for creating objects with properties and methods. The syntax is more structured and resembles classes in other object-oriented languages like Java or Python.
+
+Example of a class:
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+const alice = new Person("Alice", 30);
+alice.greet();  // Outputs: Hello, my name is Alice and I am 30 years old.
+
+b) Class Methods
+
+In a class, methods are defined without using the function keyword. These methods will be added to the prototype of the class, and all instances of the class will share them.
+
+Example:
+
+class Calculator {
+  add(a, b) {
+    return a + b;
+  }
+
+  multiply(a, b) {
+    return a * b;
+  }
+}
+
+const calc = new Calculator();
+console.log(calc.add(2, 3));      // Outputs: 5
+console.log(calc.multiply(2, 3)); // Outputs: 6
+
+c) Inheritance with Classes
+
+Classes can use inheritance with the extends keyword. A subclass inherits properties and methods from a parent class.
+
+- Example of inheritance:
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog("Rex");
+dog.speak();  // Outputs: Rex barks.
